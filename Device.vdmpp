@@ -1,13 +1,14 @@
 class Device
 types
--- TODO Define types here
 
-		public DeviceID= nat1;
+	public DeviceID = nat1;
+	public CardReference = CardUtils`CardReference;
 
 values
 -- TODO Define values here
 instance variables
--- TODO Define instance variables here
+
+
 operations
 -- TODO Define operations here
 functions
