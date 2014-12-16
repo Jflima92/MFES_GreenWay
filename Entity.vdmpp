@@ -3,14 +3,29 @@ types
 -- TODO Define types here
 	public User = set of Device`DeviceID;
 	public EntityID = nat;
+	public Location = nat;
+	
 values
 -- TODO Define values here
+
 instance variables
 -- TODO Define instance variables here
+
+	public entityID : EntityID;
+	public location : Location;
+	
+	
 operations
 -- TODO Define operations here
+
+
 functions
 -- TODO Define functiones here
+
+
+
 traces
 -- TODO Define Combinatorial Test Traces here
+
+
 end Entity
