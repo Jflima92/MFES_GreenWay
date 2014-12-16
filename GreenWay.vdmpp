@@ -28,22 +28,36 @@ public AddMember : Member * Device ==> ()
 AddMember(id, m) ==(
 
    members := members ++ { id |-> m };
-   credits := credits ++ { id |-> 0 });
+   credits := credits ++ { id |-> 0 }
+   
+   )
+   pre m not in set rng members and id not in set dom members
+   post members(id) = m and credits(id) = 0;
    
 			
 public AddEntity : EntityMember * Entity ==> ()
 AddEntity(id, e) ==
-   entities := entities ++ { id |-> e };
+   entities := entities ++ { id |-> e }
+   pre e not in set rng entities and id not in set dom entities
+   post entities(id) = e;
+   
+   
    
    
 
-	    public UseService : Member * EntityMember ==> ()
-UseService (m,e) ==(
+	    public UseService : Member * EntityMember * Device`LastLocationTime ==> ()
+UseService (m,e,t) ==(
 		members(m).lastLocation := entities(e).location;
-		credits := credits ++ { m |-> entities(e).cost + credits(m) };				
+		credits := credits ++ { m |-> entities(e).cost + credits(m) };
+		members(m).time := t;			
 	
-	)pre members(m).balance >=0;
+	)pre members(m).balance >=0 and m in set dom members
+	and e in set dom entities
+	and CheckTimeSpace(members(m).lastLocation,entities(e).location,members(m).time, t );
 	
+
+		
+
 	
 	public ChargeMonthlyFee : () ==> ()
 	ChargeMonthlyFee() ==(
@@ -53,9 +67,9 @@ UseService (m,e) ==(
  
  
  public CheckPosition: Member ==> 	Entity`Location
- CheckPosition(m) ==
+ CheckPosition(m) ==(
  		 return members(m).lastLocation;
- 		 
+ 		 )pre m in set dom members;
  		 
  
 	    
@@ -65,6 +79,10 @@ UseService (m,e) ==(
 
 functions
 -- TODO Define functiones here
+	public CheckTimeSpace: Device`LastLocation * Entity`Location * Device`LastLocationTime *Device`LastLocation  -> bool 
+	CheckTimeSpace(li,lf,ti,tf) ==
+	
+		li < lf and ti < tf and (lf-li)/(tf-ti) <= 150;
 traces
 -- TODO Define Combinatorial Test Traces here
 end GreenWay
