@@ -21,7 +21,7 @@ operations
 		(
 			gw.AddMember(m.id, m);			
 			assertEqual(gw.members(m.id), m);	
-			IO`println(gw);
+			IO`print(gw);
 			);	
 			
 	public AddEntitiesGW: GreenWay * Entity  ==> ()
@@ -29,7 +29,7 @@ operations
 		(
 			gw.AddEntity(e.entityID, e);			
 			assertEqual(gw.entities(e.entityID), e);	
-			IO`println(gw);
+			IO`print(gw);
 			);	
 									
 			

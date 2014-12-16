@@ -21,17 +21,10 @@ operations
 		(
 			gw.AddMember(m.id, m);			
 			assertEqual(gw.members(m.id), m);	
-			IO`println(gw);
+			IO`print(gw);
 			);	
 			
-	public AddEntitiesGW: GreenWay * Entity  ==> ()
-		AddEntitiesGW(gw, e) ==
-		(
-			gw.AddEntity(e.entityID, e);			
-			assertEqual(gw.entities(e.entityID), e);	
-			IO`println(gw);
-			);	
-									
+						
 			
 	public testAddMember: () ==> ()
   testAddMember() == (
@@ -41,21 +34,6 @@ operations
   	AddMemberGW(gw, member);  
   		  	
   );
-  
-  public testAddEntity: () ==> ()
-  testAddEntity() == (
-  
-  	dcl entity: Entity := new Entity(1, 2, 20);
-  	dcl gw : GreenWay := ConfigureGW();
-  	AddEntitiesGW(gw, entity);  
-  		  	
-  );
-  
-  public testAll: () ==> ()
-  testAll() == (
-  	testAddMember();
-  	testAddEntity();
-  	)
 			 
 functions
 -- TODO Define functiones here
