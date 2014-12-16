@@ -1,12 +1,49 @@
 class GreenWay
 types
 -- TODO Define types here
+
+	public Member = Device`DeviceID;
+	public EntityMember = Entity`EntityID;
+	
+	
+
+
 values
 -- TODO Define values here
 instance variables
 -- TODO Define instance variables here
+	public members : set of Member;
+	public entities : set of EntityMember;
+	
 operations
 -- TODO Define operations here
+	public GreenWay: () ==> GreenWay
+		GreenWay() == 
+			return self;
+			
+public AddMember:  Member ==> bool
+AddMember(m) ==
+  if(m not in set members) then
+  (
+    members := members union {m};
+    return true;
+  )
+  else
+    return false;
+    
+ public AddEntity:  EntityMember ==> bool
+	AddEntity(e) ==
+	  if(e not in set entities) then
+	  (
+	    entities := entities union {e};
+	    return true;
+	  )
+	  else
+	    return false;
+	    
+	    
+
+
 functions
 -- TODO Define functiones here
 traces
