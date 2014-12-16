@@ -49,7 +49,14 @@ UseService (m,e) ==(
 	ChargeMonthlyFee() ==(
 		for all m in set dom credits do
 		(members(m).balance := members(m).balance - credits(m) );	
-	)
+	);
+ 
+ 
+ public CheckPosition: Member ==> 	Entity`Location
+ CheckPosition(m) ==
+ 		 return members(m).lastLocation;
+ 		 
+ 		 
  
 	    
 	    
