@@ -4,6 +4,7 @@ types
 
 	public Member = Device`DeviceID;
 	public EntityMember = Entity`EntityID;
+	public Credit = nat;
 	
 	
 
@@ -14,6 +15,7 @@ instance variables
 -- TODO Define instance variables here
 	public members : map Member to Device := { |-> };
 	public entities : map EntityMember to Entity := { |-> };
+	public credits : map Member to Credit := { |-> };
 	
 operations
 -- TODO Define operations here
@@ -29,8 +31,9 @@ AddMember(id, m) ==
 public AddEntity : EntityMember * Entity ==> ()
 AddEntity(id, e) ==
    entities := entities ++ { id |-> e };
-    
- 
+   
+   
+
 	    
 	    
 	    
