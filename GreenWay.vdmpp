@@ -12,8 +12,8 @@ values
 -- TODO Define values here
 instance variables
 -- TODO Define instance variables here
-	public members : set of Member;
-	public entities : set of EntityMember;
+	public members : map Member to Device := { |-> };
+	public entities : map EntityMember to Entity := { |-> };
 	
 operations
 -- TODO Define operations here
@@ -21,25 +21,18 @@ operations
 		GreenWay() == 
 			return self;
 			
-public AddMember:  Member ==> bool
-AddMember(m) ==
-  if(m not in set members) then
-  (
-    members := members union {m};
-    return true;
-  )
-  else
-    return false;
+			
+public AddMember : Member * Device ==> ()
+AddMember(id, m) ==
+   members := members ++ { id |-> m };
+			
+public AddEntity : EntityMember * Entity ==> ()
+AddEntity(id, e) ==
+   entities := entities ++ { id |-> e };
     
- public AddEntity:  EntityMember ==> bool
-	AddEntity(e) ==
-	  if(e not in set entities) then
-	  (
-	    entities := entities union {e};
-	    return true;
-	  )
-	  else
-	    return false;
+ 
+	    
+	    
 	    
 	    
 
