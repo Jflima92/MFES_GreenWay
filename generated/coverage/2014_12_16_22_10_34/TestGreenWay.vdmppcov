@@ -1,0 +1,37 @@
+class TestGreenWay is subclass of TestCaseUtils
+
+
+	/***** USE CASE SCENARIOS ******/
+
+operations
+
+	public ConfigureGW: () ==> GreenWay
+		ConfigureGW() == (
+		dcl gw : GreenWay := new GreenWay();
+		return gw;
+		)
+		
+	post RESULT.members = {|->}
+			 and RESULT.entities = {|->}
+			 and RESULT.credits = {|->};
+			 
+			 
+	public AddMemberGW: GreenWay ==> ()
+		AddMemberGW(gw) ==
+		(
+		  dcl member : Device := new Device(1, 0);
+			gw.AddMember(member.id, member);			
+			assertEqual(gw.members(member.id), 2);		
+			);	
+			
+	public testAddMember: () ==> ()
+  testAddMember() == (
+  	dcl gw : GreenWay := ConfigureGW();
+  	AddMemberGW(gw);  	  	
+  );
+			 
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end TestGreenWay

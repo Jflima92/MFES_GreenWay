@@ -1,0 +1,59 @@
+class TestGreenWay is subclass of TestCaseUtils
+
+
+	/***** USE CASE SCENARIOS ******/
+
+operations
+
+	public ConfigureGW: GreenWay ==> GreenWay
+		ConfigureGW() == (
+		dcl gw : GreenWay := new GreenWay();
+		gw.setReady();
+		return gw;
+		)
+		
+	post RESULT.members = {|->}
+			 and RESULT.entities = {|->}
+			 and RESULT.credits = {|->};
+			 
+			 
+	public AddMemberGW: GreenWay ==> ()
+		AddMemberGW(gw) ==
+		(
+		  dcl member : Device := new Device(1, 0);
+			gw.AddMember(member.id, member)
+			
+			assertTrue(let p = member.id in  //verification if member in list
+			)
+			
+	
+	
+			 public LoadStockScn: VendingMachine * VendingMachine`Password * 
+			map Product`ProductName to Product`ProductPrice * MoneyUtils`BagOfCoins ==> ()
+	LoadStockScn(vm, code, prods, coins) ==
+	(
+		-- manual old values
+		dcl oldQuantityInStock : map Product to nat := {p |-> p.quantityInStock | p in set rng vm.products};
+
+		-- steps
+		vm.openDoor(code);
+		|| (vm.loadProducts(prods), vm.loadCoins(coins));		
+		vm.closeDoor();
+		
+		-- manual post-condition checking (not supported otherwise)
+		assertTrue(forall prodName in set dom prods & 
+									let p = vm.products(prodName) in 
+    								p.quantityInStock = oldQuantityInStock(p) + prods(prodName)) /*1*/		
+  )
+  pre vm.status = <Idle> /*1*/
+  		and code = vm.maintenanceCode /*2*/
+  		and dom prods subset dom vm.products /*3*/
+  post vm.stockOfCoins = coins /*2*/
+  	   and vm.status = <Idle>; /*3*/
+			 
+			 
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end TestGreenWay
