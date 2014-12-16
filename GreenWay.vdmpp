@@ -37,7 +37,16 @@ AddEntity(id, e) ==
    
    
 
-	    
+	    public UseService : Member * EntityMember ==> ()
+UseService (m,e) ==(
+		members(m).lastLocation := entities(e).location;
+		credits := credits ++ { m |-> entities(e).cost + credits(m) };				
+	
+	)pre members(m).balance >=0;
+	
+	
+    
+ 
 	    
 	    
 	    
