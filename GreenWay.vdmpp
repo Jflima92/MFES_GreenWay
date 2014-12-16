@@ -33,7 +33,8 @@ AddMember(id, m) ==(
 			
 public AddEntity : EntityMember * Entity ==> ()
 AddEntity(id, e) ==
-   entities := entities ++ { id |-> e };   
+   entities := entities ++ { id |-> e };
+   
    
 
 	    public UseService : Member * EntityMember ==> ()
@@ -41,7 +42,18 @@ UseService (m,e) ==(
 		members(m).lastLocation := entities(e).location;
 		credits := credits ++ { m |-> entities(e).cost + credits(m) };				
 	
-	)pre members(m).balance >=0;    
+	)pre members(m).balance >=0;
+	
+	
+	public ChargeMonthlyFee : () ==> ()
+	ChargeMonthlyFee() ==(
+		for all m in set dom credits do
+		(members(m).balance := members(m).balance - credits(m) );	
+	)
+ 
+	    
+	    
+	    
 
 
 functions
