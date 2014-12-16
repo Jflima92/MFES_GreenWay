@@ -17,7 +17,13 @@ instance variables
 	
 operations
 -- TODO Define operations here
-
+	
+	public Entity : EntityID * Location ==> Entity
+	 Entity(ID, loc) == (	 
+	 entityID := ID;
+	 location := loc;
+	 return self;
+	 );
 
 functions
 -- TODO Define functiones here
