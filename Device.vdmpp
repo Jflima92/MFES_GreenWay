@@ -2,15 +2,28 @@ class Device
 types
 
 	public DeviceID = nat1;
-	public CardReference = CardUtils`CardReference;
+	/*public GreenWay = `GreenWay;*/
+	public Balance = nat;
 
 values
 -- TODO Define values here
 instance variables
 
 
+	public lastlocation : nat;
+	public balance : Balance :=0;
+	public id : DeviceID;
+	
+
 operations
 -- TODO Define operations here
+public Device : DeviceID* Balance ==> Device
+	 Device(ID, bal) == (
+	 
+	 id := ID;
+	 balance := bal;
+	 return self;
+	 );
 functions
 -- TODO Define functiones here
 traces
