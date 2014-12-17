@@ -1,0 +1,234 @@
+\begin{vdmpp}
+class TestGreenWay is subclass of TestCaseUtils
+
+
+  /***** USE CASE SCENARIOS ******/
+
+operations
+
+  /*Initiates the GreenWay System*/
+  
+(*@
+\label{ConfigureGW:10}
+@*)
+  public ConfigureGW: () ==> GreenWay
+    ConfigureGW() == (
+    dcl gw : GreenWay := new GreenWay();
+    return gw;
+    )   
+  post RESULT.members = {|->}
+       and RESULT.entities = {|->}
+       and RESULT.credits = {|->};
+       
+  /*Add members and entities to the systems and perform tests*/
+       
+(*@
+\label{AddMemberGW:21}
+@*)
+  public AddMemberGW: GreenWay * Device ==> ()
+    AddMemberGW(gw, m) ==
+    (
+      gw.AddMember(m.id, m);      
+      assertEqual(gw.members(m.id), m); 
+      IO`println(gw);
+      );  
+      
+(*@
+\label{AddEntitiesGW:29}
+@*)
+  public AddEntitiesGW: GreenWay * Entity  ==> ()
+    AddEntitiesGW(gw, e) ==
+    (
+      gw.AddEntity(e.entityID, e);      
+      assertEqual(gw.entities(e.entityID), e);  
+      IO`println(gw);
+      );  
+                  
+      
+(*@
+\label{testAddMember:38}
+@*)
+  public testAddMember: () ==> ()
+  testAddMember() == (*@\vdmnotcovered{(}@*)
+  
+    dcl member: Device := (*@\vdmnotcovered{new}@*) (*@\vdmnotcovered{Device}@*)((*@\vdmnotcovered{1}@*), (*@\vdmnotcovered{0}@*));
+    dcl gw : GreenWay := (*@\vdmnotcovered{ConfigureGW}@*)();
+    (*@\vdmnotcovered{AddMemberGW}@*)((*@\vdmnotcovered{gw}@*), (*@\vdmnotcovered{member}@*));  
+          
+  );
+  
+(*@
+\label{testAddEntity:47}
+@*)
+  public testAddEntity: () ==> ()
+  testAddEntity() == (*@\vdmnotcovered{(}@*)
+  
+    dcl entity: Entity := (*@\vdmnotcovered{new}@*) (*@\vdmnotcovered{Entity}@*)((*@\vdmnotcovered{1}@*), (*@\vdmnotcovered{2}@*), (*@\vdmnotcovered{20}@*));
+    dcl gw : GreenWay := (*@\vdmnotcovered{ConfigureGW}@*)();
+    (*@\vdmnotcovered{AddEntitiesGW}@*)((*@\vdmnotcovered{gw}@*), (*@\vdmnotcovered{entity}@*));  
+          
+  );
+  
+(*@
+\label{testSeveralAditions:56}
+@*)
+  public testSeveralAditions: () ==> ()
+  testSeveralAditions() == (
+    
+    dcl member: Device := new Device(1, 0);
+    dcl member1: Device := new Device(2, 0);
+    dcl member2: Device := new Device(3, 0);
+    
+    dcl entity: Entity := new Entity(1, 2, 20);
+    dcl entity1: Entity := new Entity(2, 3, 20);
+    dcl entity2: Entity := new Entity(3, 4, 20);
+    
+    dcl gw : GreenWay := ConfigureGW();
+    
+    AddEntitiesGW(gw, entity); 
+    AddEntitiesGW(gw, entity1);
+    AddEntitiesGW(gw, entity2);
+    
+    AddMemberGW(gw, member);
+    AddMemberGW(gw, member1);
+    AddMemberGW(gw, member2);
+    
+    IO`println(gw);
+          
+  );
+  
+  /*Test use of service*/  
+  
+(*@
+\label{UseServiceGW:83}
+@*)
+  public UseServiceGW: GreenWay *  Device * Entity`EntityID ==> ()
+  UseServiceGW(gw, m, e) == (
+  
+    dcl oldCreditsForDevice: nat := gw.credits(m.id);
+    
+    dcl previousHistory: Device`History := gw.CheckHistory(m.id);   
+  
+    gw.UseService(m.id, e, 1);
+    
+    assertEqual(gw.members(m.id).lastLocation, gw.entities(e).location);
+    assertTrue(gw.credits(m.id) =  gw.entities(e).cost + oldCreditsForDevice);
+    assertEqual(gw.members(m.id).time, m.time);
+    assertTrue(gw.members(m.id).history = previousHistory ++ {gw.entities(e).location |-> m.time});  
+    
+    );
+    
+(*@
+\label{testUseService:99}
+@*)
+  public testUseService: () ==> ()
+  testUseService() == (
+  
+    dcl member: Device := new Device(1, 200);
+    
+    dcl entity: Entity := new Entity(1, 2, 20);
+    
+    dcl gw : GreenWay := ConfigureGW();
+    
+    AddEntitiesGW(gw, entity); 
+    
+    AddMemberGW(gw, member);    
+
+    UseServiceGW(gw, member, entity.entityID); 
+    
+      
+  );
+  
+  /* Test History getter */
+  
+(*@
+\label{getMemberHistory:119}
+@*)
+(*@
+\label{testGetMemberHistory:ChargeFee:GetMemberPos:119}
+@*)
+   public testGetMemberHistory_ChargeFee_GetMemberPos: () ==> ()
+   testGetMemberHistory_ChargeFee_GetMemberPos() == (
+   
+   dcl gw : GreenWay := ConfigureGW();   
+   dcl member: Device := new Device(1, 200);
+   dcl entity: Entity := new Entity(1, 2, 30);
+   dcl entity1: Entity := new Entity(2, 3, 40);
+(*@
+\label{testGetMemberHistory:126}
+@*)
+   
+   dcl oldH: Device`History := member.history;
+   dcl h1: Device`History := {entity.location |-> 1}; 
+   dcl h2: Device`History := {entity1.location |-> 2}; 
+   
+   AddEntitiesGW(gw, entity); 
+   AddEntitiesGW(gw, entity1);
+    
+    AddMemberGW(gw, member); 
+   
+   gw.UseService(member.id, entity.entityID, 1);
+   gw.UseService(member.id, entity1.entityID, 2);   
+   
+   assertEqual(gw.CheckHistory(member.id), oldH ++ h1 ++ h2 );   
+   
+   gw.ChargeMonthlyFee();  
+   
+   assertEqual(gw.CheckPosition(member.id), member.lastLocation); 
+   assertEqual( rng gw.credits, {0}); 
+   
+   );
+  
+  public testAll: () ==> ()
+  testAll() == ( 
+    testSeveralAditions();
+    IO`println("");
+    testUseService();
+    IO`println("");
+(*@
+\label{testAll:154}
+@*)
+    testGetMemberHistory_ChargeFee_GetMemberPos();
+    )
+       
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end TestGreenWay
+\end{vdmpp}
+\bigskip
+\begin{longtable}{|l|r|r|r|}
+\hline
+Function or operation & Line & Coverage & Calls \\
+\hline
+\hline
+\hyperref[AddEntitiesGW:29]{AddEntitiesGW} & 29&100.0\% & 112 \\
+\hline
+\hyperref[AddMemberGW:21]{AddMemberGW} & 21&100.0\% & 96 \\
+\hline
+\hyperref[ConfigureGW:10]{ConfigureGW} & 10&100.0\% & 56 \\
+\hline
+\hyperref[UseServiceGW:83]{UseServiceGW} & 83&100.0\% & 24 \\
+\hline
+\hyperref[getMemberHistory:119]{getMemberHistory} & 119&100.0\% & 1 \\
+\hline
+\hyperref[testAddEntity:47]{testAddEntity} & 47&0.0\% & 0 \\
+\hline
+\hyperref[testAddMember:38]{testAddMember} & 38&0.0\% & 0 \\
+\hline
+\hyperref[testAll:154]{testAll} & 154&100.0\% & 1 \\
+\hline
+\hyperref[testGetMemberHistory:126]{testGetMemberHistory} & 126&100.0\% & 1 \\
+\hline
+\hyperref[testGetMemberHistory:ChargeFee:GetMemberPos:119]{testGetMemberHistory\_ChargeFee\_GetMemberPos} & 119&100.0\% & 1 \\
+\hline
+\hyperref[testSeveralAditions:56]{testSeveralAditions} & 56&100.0\% & 22 \\
+\hline
+\hyperref[testUseService:99]{testUseService} & 99&100.0\% & 17 \\
+\hline
+\hline
+TestGreenWay.vdmpp & & 92.4\% & 331 \\
+\hline
+\end{longtable}
+

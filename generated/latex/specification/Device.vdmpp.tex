@@ -1,0 +1,83 @@
+\begin{vdmpp}
+class Device
+types
+
+ public DeviceID = nat1;
+ /*public GreenWay = `GreenWay;*/
+ public Balance = nat;
+ public LastLocation = nat;
+ public LastLocationTime = nat;
+ public Location = nat;
+ public LocationTime = nat;
+ public History = map Location to LocationTime ;
+ 
+
+values
+-- TODO Define values here
+instance variables
+
+ public lastLocation : LastLocation;
+ public balance : Balance :=0;
+ public id : DeviceID;
+ public time : LastLocationTime;
+ public history : History := { |-> };
+ 
+ 
+
+operations
+-- TODO Define operations here
+
+(*@
+\label{Device:29}
+@*)
+ public Device : DeviceID * Balance ==> Device
+  Device(ID, bal) == (  
+  id := ID;
+  balance := bal;
+  lastLocation := 0;
+  time := 0;
+  return self;
+  );
+  
+(*@
+\label{setBalance:38}
+@*)
+ public setBalance: Balance ==> ()
+ setBalance(balan) ==
+  (*@\vdmnotcovered{balance}@*) := (*@\vdmnotcovered{balan}@*);
+  
+(*@
+\label{setLastLocation:42}
+@*)
+ public setLastLocation: LastLocation ==> ()
+ setLastLocation(lastloc) ==
+  (*@\vdmnotcovered{lastLocation}@*) := (*@\vdmnotcovered{lastloc}@*); 
+  
+ 
+  
+functions
+-- TODO Define functiones here
+
+
+traces
+-- TODO Define Combinatorial Test Traces here
+
+end Device
+\end{vdmpp}
+\bigskip
+\begin{longtable}{|l|r|r|r|}
+\hline
+Function or operation & Line & Coverage & Calls \\
+\hline
+\hline
+\hyperref[Device:29]{Device} & 29&100.0\% & 88 \\
+\hline
+\hyperref[setBalance:38]{setBalance} & 38&0.0\% & 0 \\
+\hline
+\hyperref[setLastLocation:42]{setLastLocation} & 42&0.0\% & 0 \\
+\hline
+\hline
+Device.vdmpp & & 73.3\% & 88 \\
+\hline
+\end{longtable}
+

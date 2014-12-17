@@ -26,7 +26,6 @@ instance variables
 operations
 -- TODO Define operations here
 
-	/* Device Constructor */
 	public Device : DeviceID * Balance ==> Device
 	 Device(ID, bal) == (	 
 	 id := ID;
@@ -36,11 +35,10 @@ operations
 	 return self;
 	 );
 	 
-	/* Set Device aka member balance to balan */
 	public setBalance: Balance ==> ()
 	setBalance(balan) ==
 		balance := balan;
-	/* Set Device aka member last location to laslot */	
+		
 	public setLastLocation: LastLocation ==> ()
 	setLastLocation(lastloc) ==
 		lastLocation := lastloc; 

@@ -114,7 +114,7 @@ operations
       
   );
   
-  /* Test History, Position getter and the monthly fee charge */
+  /* Test History getter */
   
   	public testGetMemberHistory_ChargeFee_GetMemberPos: () ==> ()
   	testGetMemberHistory_ChargeFee_GetMemberPos() == (

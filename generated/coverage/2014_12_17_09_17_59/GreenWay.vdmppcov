@@ -1,5 +1,6 @@
 class GreenWay
 types
+-- TODO Define types here
 
 	public Member = Device`DeviceID;
 	public EntityMember = Entity`EntityID;
@@ -8,24 +9,18 @@ types
 values
 -- TODO Define values here
 instance variables
-
-	/*List of members in the GreenWay*/	
+-- TODO Define instance variables here
 	public members : map Member to Device := { |-> };
-	
-	/*List of entities in the GreenWay*/	
 	public entities : map EntityMember to Entity := { |-> };
-	
-	/*List of each member debit to the GreenWay*/	
 	public credits : map Member to Credit := { |-> };
 	
 operations
-
-	/* GreenWay Constructor */
+-- TODO Define operations here
 	public GreenWay: () ==> GreenWay
 		GreenWay() == 
 			return self;
 			
-	/* Add member Device to the GreenWay*/		
+			
 	public AddMember : Member * Device ==> ()
 	AddMember(id, m) ==(
 
@@ -36,14 +31,13 @@ operations
    pre m not in set rng members and id not in set dom members
    post members(id) = m and credits(id) = 0;
    
-	/* Add entity to the GreenWay*/		
+			
 	public AddEntity : EntityMember * Entity ==> ()
 	AddEntity(id, e) ==
    entities := entities ++ { id |-> e }
    pre e not in set rng entities and id not in set dom entities
    post entities(id) = e;  
-	
-	/* Makes use of GreenWay Service at the Entity e, by the member m*/
+
 	public UseService : Member * EntityMember * Device`LastLocationTime ==> ()
 	UseService (m,e,t) ==(
 		members(m).lastLocation := entities(e).location;
@@ -56,13 +50,13 @@ operations
 	and e in set dom entities
 	and CheckTimeSpace(members(m).lastLocation,entities(e).location,members(m).time, t );
 	
-	/* Returns the chosen member location history */
+
 	public CheckHistory : Member ==> Device`History 
 	CheckHistory(m) ==(
 		return members(m).history;)
 		pre m in set dom members;
 
-	/* Charges all members for his debit to the GreenWay */
+	
 	public ChargeMonthlyFee : () ==> ()
 	ChargeMonthlyFee() ==(
 		for all m in set dom credits do
@@ -72,7 +66,7 @@ operations
 	)
 	post forall m in set dom credits & credits(m)=0;
  
- /* Check member last position */
+ 
  public CheckPosition: Member ==> 	Entity`Location
  CheckPosition(m) ==(
  		 return members(m).lastLocation;

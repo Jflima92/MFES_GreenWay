@@ -18,8 +18,8 @@ instance variables
 	
 	
 operations
-
-	/* Entity Constructor */	
+-- TODO Define operations here
+	
 	public Entity : EntityID * Location * Cost ==> Entity
 	 Entity(ID, loc, c) == (	 
 	 entityID := ID;

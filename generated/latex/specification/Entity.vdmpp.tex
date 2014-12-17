@@ -1,0 +1,58 @@
+\begin{vdmpp}
+class Entity
+types
+-- TODO Define types here
+ public User = set of Device`DeviceID;
+ public EntityID = nat;
+ public Location = nat;
+ public Cost = nat;
+ 
+values
+-- TODO Define values here
+
+instance variables
+-- TODO Define instance variables here
+
+ public entityID : EntityID;
+ public location : Location;
+ public cost :Cost;
+ 
+ 
+operations
+-- TODO Define operations here
+ 
+(*@
+\label{Entity:23}
+@*)
+ public Entity : EntityID * Location * Cost ==> Entity
+  Entity(ID, loc, c) == (  
+  entityID := ID;
+  location := loc;
+  cost := c;
+  return self;
+  );
+
+functions
+-- TODO Define functiones here
+
+
+
+traces
+-- TODO Define Combinatorial Test Traces here
+
+
+end Entity
+\end{vdmpp}
+\bigskip
+\begin{longtable}{|l|r|r|r|}
+\hline
+Function or operation & Line & Coverage & Calls \\
+\hline
+\hline
+\hyperref[Entity:23]{Entity} & 23&100.0\% & 126 \\
+\hline
+\hline
+Entity.vdmpp & & 100.0\% & 126 \\
+\hline
+\end{longtable}
+

@@ -1,0 +1,139 @@
+\begin{vdmpp}
+class GreenWay
+types
+-- TODO Define types here
+
+ public Member = Device`DeviceID;
+ public EntityMember = Entity`EntityID;
+ public Credit = nat;
+ 
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+ public members : map Member to Device := { |-> };
+ public entities : map EntityMember to Entity := { |-> };
+ public credits : map Member to Credit := { |-> };
+ 
+operations
+-- TODO Define operations here
+(*@
+\label{GreenWay:19}
+@*)
+ public GreenWay: () ==> GreenWay
+  GreenWay() == 
+   return self;
+   
+   
+(*@
+\label{AddMember:24}
+@*)
+ public AddMember : Member * Device ==> ()
+ AddMember(id, m) ==(
+
+   members := members ++ { id |-> m };
+   credits := credits ++ { id |-> 0 };   
+   
+   )
+   pre m not in set rng members and id not in set dom members
+   post members(id) = m and credits(id) = 0;
+   
+   
+ public AddEntity : EntityMember * Entity ==> ()
+(*@
+\label{AddEntity:36}
+@*)
+ AddEntity(id, e) ==
+   entities := entities ++ { id |-> e }
+   pre e not in set rng entities and id not in set dom entities
+   post entities(id) = e;  
+
+ public UseService : Member * EntityMember * Device`LastLocationTime ==> ()
+(*@
+\label{UseService:42}
+@*)
+ UseService (m,e,t) ==(
+  members(m).lastLocation := entities(e).location;
+  credits := credits ++ { m |-> entities(e).cost + credits(m) };
+  members(m).time := t;   
+  members(m).history := members(m).history ++ {entities(e).location |-> t} ;
+ 
+ )pre members(m).balance >=0 
+ and m in set dom members
+ and e in set dom entities
+ and CheckTimeSpace(members(m).lastLocation,entities(e).location,members(m).time, t );
+ 
+
+ public CheckHistory : Member ==> Device`History 
+(*@
+\label{CheckHistory:55}
+@*)
+ CheckHistory(m) ==(
+  return members(m).history;)
+  pre m in set dom members;
+
+ 
+ public ChargeMonthlyFee : () ==> ()
+(*@
+\label{ChargeMonthlyFee:61}
+@*)
+ ChargeMonthlyFee() ==(
+  for all m in set dom credits do
+  (members(m).balance := members(m).balance - credits(m);
+  credits := credits ++ {m |-> 0} ); 
+  
+ )
+ post forall m in set dom credits & credits(m)=0;
+ 
+(*@
+\label{CheckPosition:69}
+@*)
+ 
+ public CheckPosition: Member ==>  Entity`Location
+ CheckPosition(m) ==(
+    return members(m).lastLocation;
+    )pre m in set dom members;
+    
+ 
+
+functions
+(*@
+\label{CheckTimeSpace:78}
+@*)
+-- TODO Define functiones here
+ public CheckTimeSpace: Device`LastLocation * Entity`Location * Device`LastLocationTime *Device`LastLocation  -> bool  
+  CheckTimeSpace(li,lf,ti,tf) ==
+ 
+  li < lf and ti < tf and (lf-li)/(tf-ti) <= 150;
+  
+traces
+-- TODO Define Combinatorial Test Traces here
+end GreenWay
+\end{vdmpp}
+\bigskip
+\begin{longtable}{|l|r|r|r|}
+\hline
+Function or operation & Line & Coverage & Calls \\
+\hline
+\hline
+\hyperref[AddEntity:36]{AddEntity} & 36&100.0\% & 14 \\
+\hline
+\hyperref[AddMember:24]{AddMember} & 24&100.0\% & 5 \\
+\hline
+\hyperref[ChargeMonthlyFee:61]{ChargeMonthlyFee} & 61&100.0\% & 1 \\
+\hline
+\hyperref[CheckHistory:55]{CheckHistory} & 55&100.0\% & 2 \\
+\hline
+\hyperref[CheckPosition:69]{CheckPosition} & 69&100.0\% & 1 \\
+\hline
+\hyperref[CheckTimeSpace:78]{CheckTimeSpace} & 78&100.0\% & 3 \\
+\hline
+\hyperref[GreenWay:19]{GreenWay} & 19&100.0\% & 52 \\
+\hline
+\hyperref[UseService:42]{UseService} & 42&100.0\% & 3 \\
+\hline
+\hline
+GreenWay.vdmpp & & 100.0\% & 81 \\
+\hline
+\end{longtable}
+
