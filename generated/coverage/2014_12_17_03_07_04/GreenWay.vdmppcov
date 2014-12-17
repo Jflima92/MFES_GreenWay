@@ -62,8 +62,7 @@ pre m in set dom members;
 	ChargeMonthlyFee() ==(
 		for all m in set dom credits do
 		(members(m).balance := members(m).balance - credits(m) );	
-	)
-	post forall m in set dom credits & credits(m)=0;
+	);
  
  
  public CheckPosition: Member ==> 	Entity`Location

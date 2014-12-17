@@ -43,6 +43,9 @@ operations
 	setLastLocation(lastloc) ==
 		lastLocation := lastloc; 
 		
+	public removeFromBalance: Balance ==> ()
+		removeFromBalance(qt) ==
+		balance := balance - qt;
 	
 		
 functions

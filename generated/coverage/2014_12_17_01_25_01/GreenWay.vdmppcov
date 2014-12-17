@@ -46,8 +46,7 @@ UseService (m,e,t) ==(
 		members(m).time := t;			
 		members(m).history := members(m).history ++ {entities(e).location |-> t} ;
 	
-	)pre members(m).balance >=0 
-	and m in set dom members
+	)pre members(m).balance >=0 and m in set dom members
 	and e in set dom entities
 	and CheckTimeSpace(members(m).lastLocation,entities(e).location,members(m).time, t );
 	
@@ -62,8 +61,7 @@ pre m in set dom members;
 	ChargeMonthlyFee() ==(
 		for all m in set dom credits do
 		(members(m).balance := members(m).balance - credits(m) );	
-	)
-	post forall m in set dom credits & credits(m)=0;
+	);
  
  
  public CheckPosition: Member ==> 	Entity`Location

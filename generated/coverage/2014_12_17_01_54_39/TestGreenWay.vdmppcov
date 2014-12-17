@@ -114,49 +114,11 @@ operations
       
   );
   
-  /* Test History getter */
-  
-  public getMemberHistory: GreenWay * Device ==> Device`History
-  	getMemberHistory(gw, d) == (
-  	dcl hist: Device`History := gw.CheckHistory(d.id);
-  	return hist;
-  	
-  	);
-  	
-  	public testGetMemberHistory: () ==> ()
-  	testGetMemberHistory() == (
-  	
-  	dcl gw : GreenWay := ConfigureGW();  	
-  	dcl member: Device := new Device(1, 200);
-  	dcl entity: Entity := new Entity(1, 2, 30);
-  	dcl entity1: Entity := new Entity(2, 3, 40);
-  	
-  	dcl oldH: Device`History := member.history;
-  	dcl h1: Device`History := {entity.location |-> 1}; 
-  	dcl h2: Device`History := {entity1.location |-> 2}; 
-  	
-  	AddEntitiesGW(gw, entity); 
-  	AddEntitiesGW(gw, entity1);
-    
-    AddMemberGW(gw, member); 
-  	
-  	gw.UseService(member.id, entity.entityID, 1);
-  	gw.UseService(member.id, entity1.entityID, 2);
-  	
-  	
-  	
-  	
-  	assertEqual(gw.CheckHistory(member.id), oldH ++ h1 ++ h2 );  	
-  	
-  	);
-  
   public testAll: () ==> ()
   testAll() == ( 
     testSeveralAditions();
     IO`println("");
     testUseService();
-    IO`println("");
-    testGetMemberHistory();
     )
        
 functions

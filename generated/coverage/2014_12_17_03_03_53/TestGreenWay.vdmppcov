@@ -141,9 +141,9 @@ operations
     AddMemberGW(gw, member); 
   	
   	gw.UseService(member.id, entity.entityID, 1);
-  	gw.UseService(member.id, entity1.entityID, 2);
+  	gw.UseService(member.id, entity.entityID, 2); 
   	
-  	
+  	IO`println(gw.CheckHistory(member.id)); 	
   	
   	
   	assertEqual(gw.CheckHistory(member.id), oldH ++ h1 ++ h2 );  	
