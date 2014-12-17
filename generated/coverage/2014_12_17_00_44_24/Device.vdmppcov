@@ -1,0 +1,52 @@
+class Device
+types
+
+	public DeviceID = nat1;
+	/*public GreenWay = `GreenWay;*/
+	public Balance = nat;
+	public LastLocation = nat;
+	public LastLocationTime = nat;
+
+values
+-- TODO Define values here
+instance variables
+
+	public lastLocation : LastLocation;
+	public balance : Balance :=0;
+	public id : DeviceID;
+	public time : LastLocationTime;
+	
+
+operations
+-- TODO Define operations here
+
+	public Device : DeviceID * Balance ==> Device
+	 Device(ID, bal) == (	 
+	 id := ID;
+	 balance := bal;
+	 lastLocation := 0;
+	 time := 0;
+	 return self;
+	 );
+	 
+	public setBalance: Balance ==> ()
+	setBalance(balan) ==
+		balance := balan;
+		
+	public setLastLocation: LastLocation ==> ()
+	setLastLocation(lastloc) ==
+		lastLocation := lastloc; 
+		
+	public removeFromBalance: Balance ==> ()
+		removeFromBalance(qt) ==
+		balance := balance - qt;
+	
+		
+functions
+-- TODO Define functiones here
+
+
+traces
+-- TODO Define Combinatorial Test Traces here
+
+end Device

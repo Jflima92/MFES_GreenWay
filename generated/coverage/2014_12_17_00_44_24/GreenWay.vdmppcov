@@ -1,0 +1,90 @@
+class GreenWay
+types
+-- TODO Define types here
+
+	public Member = Device`DeviceID;
+	public EntityMember = Entity`EntityID;
+	public Credit = nat;
+	
+	
+
+
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+	public members : map Member to Device := { |-> };
+	public entities : map EntityMember to Entity := { |-> };
+	public credits : map Member to Credit := { |-> };
+	
+operations
+-- TODO Define operations here
+	public GreenWay: () ==> GreenWay
+		GreenWay() == 
+			return self;
+			
+			
+public AddMember : Member * Device ==> ()
+AddMember(id, m) ==(
+
+   members := members ++ { id |-> m };
+   credits := credits ++ { id |-> 0 }
+   
+   )
+   pre m not in set rng members and id not in set dom members
+   post members(id) = m and credits(id) = 0;
+   
+			
+public AddEntity : EntityMember * Entity ==> ()
+AddEntity(id, e) ==
+   entities := entities ++ { id |-> e }
+   pre e not in set rng entities and id not in set dom entities
+   post entities(id) = e;
+   
+   
+public getDeviceCredit: Member ==> nat
+   getDeviceCredit(m) ==    
+   return credits(m);   
+   
+
+public UseService : Member * EntityMember * Device`LastLocationTime ==> ()
+UseService (m,e,t) ==(
+		members(m).lastLocation := entities(e).location;
+		credits := credits ++ { m |-> entities(e).cost + credits(m) };
+		members(m).time := t;			
+	
+	)pre members(m).balance >=0 
+	and m in set dom members
+	and e in set dom entities;
+	
+
+		
+
+	
+	public ChargeMonthlyFee : () ==> ()
+	ChargeMonthlyFee() ==(
+		for all m in set dom credits do
+		(members(m).balance := members(m).balance - credits(m) );	
+	);
+ 
+ 
+ public CheckPosition: Member ==> 	Entity`Location
+ CheckPosition(m) ==(
+ 		 return members(m).lastLocation;
+ 		 )pre m in set dom members;
+ 		 
+ 
+	    
+	    
+	    
+
+
+functions
+-- TODO Define functiones here
+	public CheckTimeSpace: Device`LastLocation * Entity`Location * Device`LastLocationTime *Device`LastLocation  -> bool 
+	CheckTimeSpace(li,lf,ti,tf) ==
+	
+		li < lf and ti < tf and (lf-li)/(tf-ti) <= 150;
+traces
+-- TODO Define Combinatorial Test Traces here
+end GreenWay
