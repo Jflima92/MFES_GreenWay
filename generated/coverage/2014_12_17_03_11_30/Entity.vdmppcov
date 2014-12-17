@@ -1,0 +1,40 @@
+class Entity
+types
+-- TODO Define types here
+	public User = set of Device`DeviceID;
+	public EntityID = nat;
+	public Location = nat;
+	public Cost = nat;
+	
+values
+-- TODO Define values here
+
+instance variables
+-- TODO Define instance variables here
+
+	public entityID : EntityID;
+	public location : Location;
+	public cost :Cost;
+	
+	
+operations
+-- TODO Define operations here
+	
+	public Entity : EntityID * Location * Cost ==> Entity
+	 Entity(ID, loc, c) == (	 
+	 entityID := ID;
+	 location := loc;
+	 cost := c;
+	 return self;
+	 );
+
+functions
+-- TODO Define functiones here
+
+
+
+traces
+-- TODO Define Combinatorial Test Traces here
+
+
+end Entity
