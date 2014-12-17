@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_MyR1YIV2EeSEG-ID6PRB-w" name="MFES_GreenWay">
+  <packagedElement xmi:type="uml:Class" xmi:id="_MySccIV2EeSEG-ID6PRB-w" name="Entity">
+    <ownedAttribute xmi:id="_MySccYV2EeSEG-ID6PRB-w" name="entityID" visibility="public" type="_MySchIV2EeSEG-ID6PRB-w" association="_MyURooV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MySccoV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyScc4V2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyScdIV2EeSEG-ID6PRB-w" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MyScdYV2EeSEG-ID6PRB-w" name="location" visibility="public" type="_MySchoV2EeSEG-ID6PRB-w" association="_MyURpoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyScdoV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyScd4V2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MySceIV2EeSEG-ID6PRB-w" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MySceYV2EeSEG-ID6PRB-w" name="cost" visibility="public" type="_MySciIV2EeSEG-ID6PRB-w" association="_MyURqoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MySceoV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MySce4V2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyScfIV2EeSEG-ID6PRB-w" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_MyScfYV2EeSEG-ID6PRB-w" name="Entity" visibility="public">
+      <ownedParameter xmi:id="_MyScfoV2EeSEG-ID6PRB-w" name="ID" type="_MySchIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyScf4V2EeSEG-ID6PRB-w" name="loc" type="_MySchoV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyScgIV2EeSEG-ID6PRB-w" name="c" type="_MySciIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyScgYV2EeSEG-ID6PRB-w" type="_MySccIV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyScgoV2EeSEG-ID6PRB-w" name="User">
+      <generalization xmi:id="_MyScg4V2EeSEG-ID6PRB-w" general="_MyTq24V2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MySchIV2EeSEG-ID6PRB-w" name="EntityID">
+      <generalization xmi:id="_MySchYV2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MySchoV2EeSEG-ID6PRB-w" name="Location">
+      <generalization xmi:id="_MySch4V2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MySciIV2EeSEG-ID6PRB-w" name="Cost">
+      <generalization xmi:id="_MySciYV2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MyScioV2EeSEG-ID6PRB-w" name="GreenWay">
+    <ownedAttribute xmi:id="_MySci4V2EeSEG-ID6PRB-w" name="members" visibility="public" type="_MyTqm4V2EeSEG-ID6PRB-w" isUnique="false" association="_MyURroV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyScjIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyScjYV2EeSEG-ID6PRB-w" value="1"/>
+      <qualifier xmi:id="_MyScjoV2EeSEG-ID6PRB-w" type="_MyTDl4V2EeSEG-ID6PRB-w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyScj4V2EeSEG-ID6PRB-w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MySckIV2EeSEG-ID6PRB-w" value="1"/>
+      </qualifier>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MySckYV2EeSEG-ID6PRB-w" value="{|->}"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MySckoV2EeSEG-ID6PRB-w" name="entities" visibility="public" type="_MySccIV2EeSEG-ID6PRB-w" isUnique="false" association="_MyURsoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MySck4V2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MySclIV2EeSEG-ID6PRB-w" value="1"/>
+      <qualifier xmi:id="_MySclYV2EeSEG-ID6PRB-w" type="_MyTDmYV2EeSEG-ID6PRB-w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyScloV2EeSEG-ID6PRB-w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyScl4V2EeSEG-ID6PRB-w" value="1"/>
+      </qualifier>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyScmIV2EeSEG-ID6PRB-w" value="{|->}"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MyScmYV2EeSEG-ID6PRB-w" name="credits" visibility="public" type="_MyTDm4V2EeSEG-ID6PRB-w" isUnique="false" association="_MyURtoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyScmoV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyScm4V2EeSEG-ID6PRB-w" value="1"/>
+      <qualifier xmi:id="_MyScnIV2EeSEG-ID6PRB-w" type="_MyTDl4V2EeSEG-ID6PRB-w">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyScnYV2EeSEG-ID6PRB-w" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyScnoV2EeSEG-ID6PRB-w" value="1"/>
+      </qualifier>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyScn4V2EeSEG-ID6PRB-w" value="{|->}"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_MyScoIV2EeSEG-ID6PRB-w" name="GreenWay" visibility="public">
+      <ownedParameter xmi:id="_MyScoYV2EeSEG-ID6PRB-w" type="_MyScioV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyScooV2EeSEG-ID6PRB-w" name="AddMember" visibility="public">
+      <ownedParameter xmi:id="_MyTDgIV2EeSEG-ID6PRB-w" name="id" type="_MyTDl4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDgYV2EeSEG-ID6PRB-w" name="m" type="_MyTqm4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDgoV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDg4V2EeSEG-ID6PRB-w" name="AddEntity" visibility="public">
+      <ownedParameter xmi:id="_MyTDhIV2EeSEG-ID6PRB-w" name="id" type="_MyTDmYV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDhYV2EeSEG-ID6PRB-w" name="e" type="_MySccIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDhoV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDh4V2EeSEG-ID6PRB-w" name="UseService" visibility="public">
+      <ownedParameter xmi:id="_MyTDiIV2EeSEG-ID6PRB-w" name="m" type="_MyTDl4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDiYV2EeSEG-ID6PRB-w" name="e" type="_MyTDmYV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDioV2EeSEG-ID6PRB-w" name="t" type="_MyTqv4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDi4V2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDjIV2EeSEG-ID6PRB-w" name="ChargeMonthlyFee" visibility="public">
+      <ownedParameter xmi:id="_MyTDjYV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDjoV2EeSEG-ID6PRB-w" name="CheckPosition" visibility="public">
+      <ownedParameter xmi:id="_MyTDj4V2EeSEG-ID6PRB-w" name="m" type="_MyTDl4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDkIV2EeSEG-ID6PRB-w" type="_MySchoV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDkYV2EeSEG-ID6PRB-w" name="CheckTimeSpace" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_MyTDkoV2EeSEG-ID6PRB-w" type="_MyTrAIV2EeSEG-ID6PRB-w" direction="return"/>
+      <ownedParameter xmi:id="_MyTDk4V2EeSEG-ID6PRB-w" name="li" type="_MyTqvYV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDlIV2EeSEG-ID6PRB-w" name="lf" type="_MySchoV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDlYV2EeSEG-ID6PRB-w" name="ti" type="_MyTqv4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDloV2EeSEG-ID6PRB-w" name="tf" type="_MyTqvYV2EeSEG-ID6PRB-w"/>
+    </ownedOperation>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTDl4V2EeSEG-ID6PRB-w" name="Member">
+      <generalization xmi:id="_MyTDmIV2EeSEG-ID6PRB-w" general="_MyTquYV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTDmYV2EeSEG-ID6PRB-w" name="EntityMember">
+      <generalization xmi:id="_MyTDmoV2EeSEG-ID6PRB-w" general="_MySchIV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTDm4V2EeSEG-ID6PRB-w" name="Credit">
+      <generalization xmi:id="_MyTDnIV2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MyTDnYV2EeSEG-ID6PRB-w" name="TestCaseUtils">
+    <ownedOperation xmi:id="_MyTDnoV2EeSEG-ID6PRB-w" name="assertTrue" visibility="protected">
+      <ownedParameter xmi:id="_MyTDn4V2EeSEG-ID6PRB-w" name="arg" type="_MyTrAIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDoIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDoYV2EeSEG-ID6PRB-w" name="assertEqual" visibility="protected">
+      <ownedParameter xmi:id="_MyTDooV2EeSEG-ID6PRB-w" name="expected" type="_MyURoIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDo4V2EeSEG-ID6PRB-w" name="actual" type="_MyURoIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDpIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MyTDpYV2EeSEG-ID6PRB-w" name="TestGreenWay">
+    <generalization xmi:id="_MyTDpoV2EeSEG-ID6PRB-w" general="_MyTDnYV2EeSEG-ID6PRB-w"/>
+    <ownedOperation xmi:id="_MyTDp4V2EeSEG-ID6PRB-w" name="ConfigureGW" visibility="public">
+      <ownedParameter xmi:id="_MyTDqIV2EeSEG-ID6PRB-w" type="_MyScioV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDqYV2EeSEG-ID6PRB-w" name="AddMemberGW" visibility="public">
+      <ownedParameter xmi:id="_MyTDqoV2EeSEG-ID6PRB-w" name="gw" type="_MyScioV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDq4V2EeSEG-ID6PRB-w" name="m" type="_MyTqm4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDrIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDrYV2EeSEG-ID6PRB-w" name="AddEntitiesGW" visibility="public">
+      <ownedParameter xmi:id="_MyTDroV2EeSEG-ID6PRB-w" name="gw" type="_MyScioV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDr4V2EeSEG-ID6PRB-w" name="e" type="_MySccIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDsIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDsYV2EeSEG-ID6PRB-w" name="testAddMember" visibility="public">
+      <ownedParameter xmi:id="_MyTDsoV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDs4V2EeSEG-ID6PRB-w" name="testAddEntity" visibility="public">
+      <ownedParameter xmi:id="_MyTDtIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDtYV2EeSEG-ID6PRB-w" name="testSeveralAditions" visibility="public">
+      <ownedParameter xmi:id="_MyTDtoV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDt4V2EeSEG-ID6PRB-w" name="testAll" visibility="public">
+      <ownedParameter xmi:id="_MyTDuIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MyTDuYV2EeSEG-ID6PRB-w" name="IO">
+    <ownedOperation xmi:id="_MyTDuoV2EeSEG-ID6PRB-w" name="writeval" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_MyTDu4V2EeSEG-ID6PRB-w" type="_MyTrAIV2EeSEG-ID6PRB-w" direction="return"/>
+      <ownedParameter xmi:id="_MyTDvIV2EeSEG-ID6PRB-w" name="val" type="_MyTqmoV2EeSEG-ID6PRB-w"/>
+      <ownedTemplateSignature xmi:id="_MyTDvYV2EeSEG-ID6PRB-w" parameter="_MyTDvoV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:id="_MyTDvoV2EeSEG-ID6PRB-w" default="_MyTDv4V2EeSEG-ID6PRB-w">
+          <ownedDefault xmi:type="uml:LiteralString" xmi:id="_MyTDv4V2EeSEG-ID6PRB-w" name="p"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDwIV2EeSEG-ID6PRB-w" name="fwriteval" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_MyTDwYV2EeSEG-ID6PRB-w" type="_MyTrAIV2EeSEG-ID6PRB-w" direction="return"/>
+      <ownedParameter xmi:id="_MyTDwoV2EeSEG-ID6PRB-w" name="filename" type="_MyTq6oV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDw4V2EeSEG-ID6PRB-w" name="val" type="_MyTqmoV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTDxIV2EeSEG-ID6PRB-w" name="fdir" type="_MyTqlYV2EeSEG-ID6PRB-w"/>
+      <ownedTemplateSignature xmi:id="_MyTDxYV2EeSEG-ID6PRB-w" parameter="_MyTDxoV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:id="_MyTDxoV2EeSEG-ID6PRB-w" default="_MyTDx4V2EeSEG-ID6PRB-w">
+          <ownedDefault xmi:type="uml:LiteralString" xmi:id="_MyTDx4V2EeSEG-ID6PRB-w" name="p"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDyIV2EeSEG-ID6PRB-w" name="freadval" visibility="public" isStatic="true" isQuery="true">
+      <ownedParameter xmi:id="_MyTDyYV2EeSEG-ID6PRB-w" type="_MyTq7YV2EeSEG-ID6PRB-w" direction="return"/>
+      <ownedParameter xmi:id="_MyTDyoV2EeSEG-ID6PRB-w" name="filename" type="_MyTq6oV2EeSEG-ID6PRB-w"/>
+      <ownedTemplateSignature xmi:id="_MyTDy4V2EeSEG-ID6PRB-w" parameter="_MyTDzIV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:id="_MyTDzIV2EeSEG-ID6PRB-w" default="_MyTDzYV2EeSEG-ID6PRB-w">
+          <ownedDefault xmi:type="uml:LiteralString" xmi:id="_MyTDzYV2EeSEG-ID6PRB-w" name="p"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTDzoV2EeSEG-ID6PRB-w" name="echo" visibility="public">
+      <ownedParameter xmi:id="_MyTDz4V2EeSEG-ID6PRB-w" name="text" type="_MyTq6oV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTD0IV2EeSEG-ID6PRB-w" type="_MyTrAIV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTD0YV2EeSEG-ID6PRB-w" name="fecho" visibility="public">
+      <ownedParameter xmi:id="_MyTD0oV2EeSEG-ID6PRB-w" name="filename" type="_MyTq6oV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTD04V2EeSEG-ID6PRB-w" name="text" type="_MyTq6oV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTD1IV2EeSEG-ID6PRB-w" name="fdir" type="_MyTq9IV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTD1YV2EeSEG-ID6PRB-w" type="_MyTrAIV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTD1oV2EeSEG-ID6PRB-w" name="ferror" visibility="public">
+      <ownedParameter xmi:id="_MyTD14V2EeSEG-ID6PRB-w" type="_MyTq6oV2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTD2IV2EeSEG-ID6PRB-w" name="print" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_MyTD2YV2EeSEG-ID6PRB-w" name="arg" type="_MyURoIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTD2oV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTD24V2EeSEG-ID6PRB-w" name="println" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_MyTD3IV2EeSEG-ID6PRB-w" name="arg" type="_MyURoIV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqkIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTqkYV2EeSEG-ID6PRB-w" name="printf" visibility="public" isStatic="true">
+      <ownedParameter xmi:id="_MyTqkoV2EeSEG-ID6PRB-w" name="format" type="_MyTq6oV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqk4V2EeSEG-ID6PRB-w" name="args" type="_MyTq94V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqlIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTqlYV2EeSEG-ID6PRB-w" name="filedirective">
+      <generalization xmi:id="_MyTqloV2EeSEG-ID6PRB-w" general="_MyTql4V2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_MyTql4V2EeSEG-ID6PRB-w" name="filedirective_appendstart__1004785595">
+      <ownedLiteral xmi:id="_MyTqmIV2EeSEG-ID6PRB-w" name="&lt;append>"/>
+      <ownedLiteral xmi:id="_MyTqmYV2EeSEG-ID6PRB-w" name="&lt;start>"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTqmoV2EeSEG-ID6PRB-w" name="p"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MyTqm4V2EeSEG-ID6PRB-w" name="Device">
+    <ownedAttribute xmi:id="_MyTqnIV2EeSEG-ID6PRB-w" name="lastLocation" visibility="public" type="_MyTqvYV2EeSEG-ID6PRB-w" association="_MyURuoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyTqnYV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyTqnoV2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyTqn4V2EeSEG-ID6PRB-w" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MyTqoIV2EeSEG-ID6PRB-w" name="balance" visibility="public" type="_MyTqu4V2EeSEG-ID6PRB-w" association="_MyURvoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyTqoYV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyTqooV2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyTqo4V2EeSEG-ID6PRB-w" value="0"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MyTqpIV2EeSEG-ID6PRB-w" name="id" visibility="public" type="_MyTquYV2EeSEG-ID6PRB-w" association="_MyURwoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyTqpYV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyTqpoV2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyTqp4V2EeSEG-ID6PRB-w" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_MyTqqIV2EeSEG-ID6PRB-w" name="time" visibility="public" type="_MyTqv4V2EeSEG-ID6PRB-w" association="_MyURxoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyTqqYV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyTqqoV2EeSEG-ID6PRB-w" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_MyTqq4V2EeSEG-ID6PRB-w" value="(undefined)"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_MyTqrIV2EeSEG-ID6PRB-w" name="Device" visibility="public">
+      <ownedParameter xmi:id="_MyTqrYV2EeSEG-ID6PRB-w" name="ID" type="_MyTquYV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqroV2EeSEG-ID6PRB-w" name="bal" type="_MyTqu4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqr4V2EeSEG-ID6PRB-w" type="_MyTqm4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTqsIV2EeSEG-ID6PRB-w" name="setBalance" visibility="public">
+      <ownedParameter xmi:id="_MyTqsYV2EeSEG-ID6PRB-w" name="balan" type="_MyTqu4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqsoV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTqs4V2EeSEG-ID6PRB-w" name="setLastLocation" visibility="public">
+      <ownedParameter xmi:id="_MyTqtIV2EeSEG-ID6PRB-w" name="lastloc" type="_MyTqvYV2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTqtYV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_MyTqtoV2EeSEG-ID6PRB-w" name="removeFromBalance" visibility="public">
+      <ownedParameter xmi:id="_MyTqt4V2EeSEG-ID6PRB-w" name="qt" type="_MyTqu4V2EeSEG-ID6PRB-w"/>
+      <ownedParameter xmi:id="_MyTquIV2EeSEG-ID6PRB-w" type="_MyTq_4V2EeSEG-ID6PRB-w" direction="return"/>
+    </ownedOperation>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTquYV2EeSEG-ID6PRB-w" name="DeviceID">
+      <generalization xmi:id="_MyTquoV2EeSEG-ID6PRB-w" general="_MyTq-4V2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTqu4V2EeSEG-ID6PRB-w" name="Balance">
+      <generalization xmi:id="_MyTqvIV2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTqvYV2EeSEG-ID6PRB-w" name="LastLocation">
+      <generalization xmi:id="_MyTqvoV2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_MyTqv4V2EeSEG-ID6PRB-w" name="LastLocationTime">
+      <generalization xmi:id="_MyTqwIV2EeSEG-ID6PRB-w" general="_MyTq_IV2EeSEG-ID6PRB-w"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_MyTqwYV2EeSEG-ID6PRB-w" name="Composite VDM Types">
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTqwoV2EeSEG-ID6PRB-w" name="Set&lt;T>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_MyTqw4V2EeSEG-ID6PRB-w" name="T" parameter="_MyTqxIV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTqxIV2EeSEG-ID6PRB-w" parameteredElement="_MyTqxYV2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTqxYV2EeSEG-ID6PRB-w" name="T" templateParameter="_MyTqxIV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTqxoV2EeSEG-ID6PRB-w" name="Map&lt;D,R>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_MyTqx4V2EeSEG-ID6PRB-w" name="D,R" parameter="_MyTqyIV2EeSEG-ID6PRB-w _MyTqyoV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTqyIV2EeSEG-ID6PRB-w" parameteredElement="_MyTqyYV2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTqyYV2EeSEG-ID6PRB-w" name="D" templateParameter="_MyTqyIV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTqyoV2EeSEG-ID6PRB-w" parameteredElement="_MyTqy4V2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTqy4V2EeSEG-ID6PRB-w" name="R" templateParameter="_MyTqyoV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTqzIV2EeSEG-ID6PRB-w" name="Seq&lt;T>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_MyTqzYV2EeSEG-ID6PRB-w" name="T" parameter="_MyTqzoV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTqzoV2EeSEG-ID6PRB-w" parameteredElement="_MyTqz4V2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTqz4V2EeSEG-ID6PRB-w" name="T" templateParameter="_MyTqzoV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq0IV2EeSEG-ID6PRB-w" name="Product&lt;A,B>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_MyTq0YV2EeSEG-ID6PRB-w" name="A,B" parameter="_MyTq0oV2EeSEG-ID6PRB-w _MyTq1IV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTq0oV2EeSEG-ID6PRB-w" parameteredElement="_MyTq04V2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTq04V2EeSEG-ID6PRB-w" name="A" templateParameter="_MyTq0oV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTq1IV2EeSEG-ID6PRB-w" parameteredElement="_MyTq1YV2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTq1YV2EeSEG-ID6PRB-w" name="B" templateParameter="_MyTq1IV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq1oV2EeSEG-ID6PRB-w" name="Optional&lt;T>">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_MyTq14V2EeSEG-ID6PRB-w" name="T" parameter="_MyTq2IV2EeSEG-ID6PRB-w">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_MyTq2IV2EeSEG-ID6PRB-w" parameteredElement="_MyTq2YV2EeSEG-ID6PRB-w">
+          <ownedParameteredElement xmi:type="uml:Class" xmi:id="_MyTq2YV2EeSEG-ID6PRB-w" name="T" templateParameter="_MyTq2IV2EeSEG-ID6PRB-w"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_MyTq2oV2EeSEG-ID6PRB-w" name="Binding classes">
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq24V2EeSEG-ID6PRB-w" name="Set&lt;Device::DeviceID>">
+      <templateBinding xmi:id="_MyTq3IV2EeSEG-ID6PRB-w" signature="_MyTqw4V2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq3YV2EeSEG-ID6PRB-w" actual="_MyTquYV2EeSEG-ID6PRB-w" formal="_MyTqxIV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq3oV2EeSEG-ID6PRB-w" name="Map&lt;GreenWay::Member,Device>">
+      <templateBinding xmi:id="_MyTq34V2EeSEG-ID6PRB-w" signature="_MyTqx4V2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq4IV2EeSEG-ID6PRB-w" actual="_MyTDl4V2EeSEG-ID6PRB-w" formal="_MyTqyIV2EeSEG-ID6PRB-w"/>
+        <parameterSubstitution xmi:id="_MyTq4YV2EeSEG-ID6PRB-w" actual="_MyTqm4V2EeSEG-ID6PRB-w" formal="_MyTqyoV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq4oV2EeSEG-ID6PRB-w" name="Map&lt;GreenWay::EntityMember,Entity>">
+      <templateBinding xmi:id="_MyTq44V2EeSEG-ID6PRB-w" signature="_MyTqx4V2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq5IV2EeSEG-ID6PRB-w" actual="_MyTDmYV2EeSEG-ID6PRB-w" formal="_MyTqyIV2EeSEG-ID6PRB-w"/>
+        <parameterSubstitution xmi:id="_MyTq5YV2EeSEG-ID6PRB-w" actual="_MySccIV2EeSEG-ID6PRB-w" formal="_MyTqyoV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq5oV2EeSEG-ID6PRB-w" name="Map&lt;GreenWay::Member,GreenWay::Credit>">
+      <templateBinding xmi:id="_MyTq54V2EeSEG-ID6PRB-w" signature="_MyTqx4V2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq6IV2EeSEG-ID6PRB-w" actual="_MyTDl4V2EeSEG-ID6PRB-w" formal="_MyTqyIV2EeSEG-ID6PRB-w"/>
+        <parameterSubstitution xmi:id="_MyTq6YV2EeSEG-ID6PRB-w" actual="_MyTDm4V2EeSEG-ID6PRB-w" formal="_MyTqyoV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq6oV2EeSEG-ID6PRB-w" name="Seq&lt;char>">
+      <templateBinding xmi:id="_MyTq64V2EeSEG-ID6PRB-w" signature="_MyTqzYV2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq7IV2EeSEG-ID6PRB-w" actual="_MyURoYV2EeSEG-ID6PRB-w" formal="_MyTqzoV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq7YV2EeSEG-ID6PRB-w" name="Product&lt;bool,Optional&lt;p>>">
+      <templateBinding xmi:id="_MyTq7oV2EeSEG-ID6PRB-w" signature="_MyTq0YV2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq74V2EeSEG-ID6PRB-w" actual="_MyTrAIV2EeSEG-ID6PRB-w" formal="_MyTq0oV2EeSEG-ID6PRB-w"/>
+        <parameterSubstitution xmi:id="_MyTq8IV2EeSEG-ID6PRB-w" actual="_MyTq8YV2EeSEG-ID6PRB-w" formal="_MyTq1IV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq8YV2EeSEG-ID6PRB-w" name="Optional&lt;p>">
+      <templateBinding xmi:id="_MyTq8oV2EeSEG-ID6PRB-w" signature="_MyTq14V2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq84V2EeSEG-ID6PRB-w" actual="_MyTqmoV2EeSEG-ID6PRB-w" formal="_MyTq2IV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq9IV2EeSEG-ID6PRB-w" name="Optional&lt;IO::filedirective>">
+      <templateBinding xmi:id="_MyTq9YV2EeSEG-ID6PRB-w" signature="_MyTq14V2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq9oV2EeSEG-ID6PRB-w" actual="_MyTqlYV2EeSEG-ID6PRB-w" formal="_MyTq2IV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MyTq94V2EeSEG-ID6PRB-w" name="Seq&lt;Any>">
+      <templateBinding xmi:id="_MyTq-IV2EeSEG-ID6PRB-w" signature="_MyTqzYV2EeSEG-ID6PRB-w">
+        <parameterSubstitution xmi:id="_MyTq-YV2EeSEG-ID6PRB-w" actual="_MyURoIV2EeSEG-ID6PRB-w" formal="_MyTqzoV2EeSEG-ID6PRB-w"/>
+      </templateBinding>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_MyTq-oV2EeSEG-ID6PRB-w" name="Basic VDM Types">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyTq-4V2EeSEG-ID6PRB-w" name="nat1"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyTq_IV2EeSEG-ID6PRB-w" name="nat"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyTq_YV2EeSEG-ID6PRB-w" name="&lt;append>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyTq_oV2EeSEG-ID6PRB-w" name="&lt;start>"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyTq_4V2EeSEG-ID6PRB-w" name="Void"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyTrAIV2EeSEG-ID6PRB-w" name="bool"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyURoIV2EeSEG-ID6PRB-w" name="Any"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MyURoYV2EeSEG-ID6PRB-w" name="char"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURooV2EeSEG-ID6PRB-w" memberEnd="_MySccYV2EeSEG-ID6PRB-w _MyURo4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURo4V2EeSEG-ID6PRB-w" name="" type="_MySccIV2EeSEG-ID6PRB-w" association="_MyURooV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURpIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURpYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURpoV2EeSEG-ID6PRB-w" memberEnd="_MyScdYV2EeSEG-ID6PRB-w _MyURp4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURp4V2EeSEG-ID6PRB-w" name="" type="_MySccIV2EeSEG-ID6PRB-w" association="_MyURpoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURqIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURqYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURqoV2EeSEG-ID6PRB-w" memberEnd="_MySceYV2EeSEG-ID6PRB-w _MyURq4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURq4V2EeSEG-ID6PRB-w" name="" type="_MySccIV2EeSEG-ID6PRB-w" association="_MyURqoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURrIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURrYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURroV2EeSEG-ID6PRB-w" memberEnd="_MySci4V2EeSEG-ID6PRB-w _MyURr4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURr4V2EeSEG-ID6PRB-w" name="" type="_MyScioV2EeSEG-ID6PRB-w" association="_MyURroV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURsIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURsYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURsoV2EeSEG-ID6PRB-w" memberEnd="_MySckoV2EeSEG-ID6PRB-w _MyURs4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURs4V2EeSEG-ID6PRB-w" name="" type="_MyScioV2EeSEG-ID6PRB-w" association="_MyURsoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURtIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURtYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURtoV2EeSEG-ID6PRB-w" memberEnd="_MyScmYV2EeSEG-ID6PRB-w _MyURt4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURt4V2EeSEG-ID6PRB-w" name="" type="_MyScioV2EeSEG-ID6PRB-w" association="_MyURtoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURuIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURuYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURuoV2EeSEG-ID6PRB-w" memberEnd="_MyTqnIV2EeSEG-ID6PRB-w _MyURu4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURu4V2EeSEG-ID6PRB-w" name="" type="_MyTqm4V2EeSEG-ID6PRB-w" association="_MyURuoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURvIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURvYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURvoV2EeSEG-ID6PRB-w" memberEnd="_MyTqoIV2EeSEG-ID6PRB-w _MyURv4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURv4V2EeSEG-ID6PRB-w" name="" type="_MyTqm4V2EeSEG-ID6PRB-w" association="_MyURvoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURwIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURwYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURwoV2EeSEG-ID6PRB-w" memberEnd="_MyTqpIV2EeSEG-ID6PRB-w _MyURw4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURw4V2EeSEG-ID6PRB-w" name="" type="_MyTqm4V2EeSEG-ID6PRB-w" association="_MyURwoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURxIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURxYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MyURxoV2EeSEG-ID6PRB-w" memberEnd="_MyTqqIV2EeSEG-ID6PRB-w _MyURx4V2EeSEG-ID6PRB-w">
+    <ownedEnd xmi:id="_MyURx4V2EeSEG-ID6PRB-w" name="" type="_MyTqm4V2EeSEG-ID6PRB-w" association="_MyURxoV2EeSEG-ID6PRB-w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MyURyIV2EeSEG-ID6PRB-w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MyURyYV2EeSEG-ID6PRB-w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

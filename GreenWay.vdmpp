@@ -28,7 +28,8 @@ public AddMember : Member * Device ==> ()
 AddMember(id, m) ==(
 
    members := members ++ { id |-> m };
-   credits := credits ++ { id |-> 0 }
+   credits := credits ++ { id |-> 0 };
+   
    
    )
    pre m not in set rng members and id not in set dom members
@@ -50,13 +51,17 @@ UseService (m,e,t) ==(
 		members(m).lastLocation := entities(e).location;
 		credits := credits ++ { m |-> entities(e).cost + credits(m) };
 		members(m).time := t;			
+		members(m).history := members(m).history ++ {entities(e).location |-> t} ;
 	
 	)pre members(m).balance >=0 and m in set dom members
 	and e in set dom entities
 	and CheckTimeSpace(members(m).lastLocation,entities(e).location,members(m).time, t );
 	
 
-		
+public CheckHistory : Member ==> Device`History 
+CheckHistory(m) ==(
+return members(m).history;)
+pre m in set dom members;
 
 	
 	public ChargeMonthlyFee : () ==> ()
@@ -72,10 +77,6 @@ UseService (m,e,t) ==(
  		 )pre m in set dom members;
  		 
  
-	    
-	    
-	    
-
 
 functions
 -- TODO Define functiones here

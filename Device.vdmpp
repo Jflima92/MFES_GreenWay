@@ -6,6 +6,10 @@ types
 	public Balance = nat;
 	public LastLocation = nat;
 	public LastLocationTime = nat;
+	public Location = nat;
+	public LocationTime = nat;
+	public History = map Location to LocationTime ;
+	
 
 values
 -- TODO Define values here
@@ -15,6 +19,8 @@ instance variables
 	public balance : Balance :=0;
 	public id : DeviceID;
 	public time : LastLocationTime;
+	public history : History := { |-> };
+	
 	
 
 operations
