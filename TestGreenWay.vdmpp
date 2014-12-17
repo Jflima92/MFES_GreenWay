@@ -152,7 +152,28 @@ operations
     testUseService();
     IO`println("");
     testGetMemberHistory_ChargeFee_GetMemberPos();
-    )
+    );
+    
+    /* Failling Tests */
+    
+    public EqualDevice: () ==> ()
+			EqualDevice() ==(
+			dcl member: Device := new Device(1, 200);
+ 
+			dcl gw : GreenWay := ConfigureGW();
+			gw.AddMember(member.id, member);
+		gw.AddMember(member.id, member);
+ 
+		);
+		
+	public EqualEntity: () ==> ()
+	EqualEntity() ==(
+		dcl e: Entity := new Entity(1, 2, 20);
+ 
+		dcl gw : GreenWay := ConfigureGW();
+		gw.AddEntity(e.entityID, e);
+		gw.AddEntity(e.entityID, e); 
+	)
        
 functions
 -- TODO Define functiones here
