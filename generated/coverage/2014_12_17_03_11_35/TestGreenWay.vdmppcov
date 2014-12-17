@@ -1,0 +1,163 @@
+class TestGreenWay is subclass of TestCaseUtils
+
+
+  /***** USE CASE SCENARIOS ******/
+
+operations
+
+  /*Initiates the GreenWay System*/
+  
+  public ConfigureGW: () ==> GreenWay
+    ConfigureGW() == (
+    dcl gw : GreenWay := new GreenWay();
+    return gw;
+    )   
+  post RESULT.members = {|->}
+       and RESULT.entities = {|->}
+       and RESULT.credits = {|->};
+       
+  /*Add members and entities to the systems and perform tests*/
+       
+  public AddMemberGW: GreenWay * Device ==> ()
+    AddMemberGW(gw, m) ==
+    (
+      gw.AddMember(m.id, m);      
+      assertEqual(gw.members(m.id), m); 
+      IO`println(gw);
+      );  
+      
+  public AddEntitiesGW: GreenWay * Entity  ==> ()
+    AddEntitiesGW(gw, e) ==
+    (
+      gw.AddEntity(e.entityID, e);      
+      assertEqual(gw.entities(e.entityID), e);  
+      IO`println(gw);
+      );  
+                  
+      
+  public testAddMember: () ==> ()
+  testAddMember() == (
+  
+    dcl member: Device := new Device(1, 0);
+    dcl gw : GreenWay := ConfigureGW();
+    AddMemberGW(gw, member);  
+          
+  );
+  
+  public testAddEntity: () ==> ()
+  testAddEntity() == (
+  
+    dcl entity: Entity := new Entity(1, 2, 20);
+    dcl gw : GreenWay := ConfigureGW();
+    AddEntitiesGW(gw, entity);  
+          
+  );
+  
+  public testSeveralAditions: () ==> ()
+  testSeveralAditions() == (
+    
+    dcl member: Device := new Device(1, 0);
+    dcl member1: Device := new Device(2, 0);
+    dcl member2: Device := new Device(3, 0);
+    
+    dcl entity: Entity := new Entity(1, 2, 20);
+    dcl entity1: Entity := new Entity(2, 3, 20);
+    dcl entity2: Entity := new Entity(3, 4, 20);
+    
+    dcl gw : GreenWay := ConfigureGW();
+    
+    AddEntitiesGW(gw, entity); 
+    AddEntitiesGW(gw, entity1);
+    AddEntitiesGW(gw, entity2);
+    
+    AddMemberGW(gw, member);
+    AddMemberGW(gw, member1);
+    AddMemberGW(gw, member2);
+    
+    IO`println(gw);
+          
+  );
+  
+  /*Test use of service*/  
+  
+  public UseServiceGW: GreenWay *  Device * Entity`EntityID ==> ()
+  UseServiceGW(gw, m, e) == (
+  
+    dcl oldCreditsForDevice: nat := gw.credits(m.id);
+    
+    dcl previousHistory: Device`History := gw.CheckHistory(m.id);   
+  
+    gw.UseService(m.id, e, 1);
+    
+    assertEqual(gw.members(m.id).lastLocation, gw.entities(e).location);
+    assertTrue(gw.credits(m.id) =  gw.entities(e).cost + oldCreditsForDevice);
+    assertEqual(gw.members(m.id).time, m.time);
+    assertTrue(gw.members(m.id).history = previousHistory ++ {gw.entities(e).location |-> m.time});  
+    
+    );
+    
+  public testUseService: () ==> ()
+  testUseService() == (
+  
+    dcl member: Device := new Device(1, 200);
+    
+    dcl entity: Entity := new Entity(1, 2, 20);
+    
+    dcl gw : GreenWay := ConfigureGW();
+    
+    AddEntitiesGW(gw, entity); 
+    
+    AddMemberGW(gw, member);    
+
+    UseServiceGW(gw, member, entity.entityID); 
+    
+      
+  );
+  
+  /* Test History getter */
+  
+  public getMemberHistory: GreenWay * Device ==> Device`History
+  	getMemberHistory(gw, d) == (
+  	dcl hist: Device`History := gw.CheckHistory(d.id);
+  	return hist;
+  	
+  	);
+  	
+  	public testGetMemberHistory: () ==> ()
+  	testGetMemberHistory() == (
+  	
+  	dcl gw : GreenWay := ConfigureGW();  	
+  	dcl member: Device := new Device(1, 200);
+  	dcl entity: Entity := new Entity(1, 2, 30);
+  	dcl entity1: Entity := new Entity(2, 3, 40);
+  	
+  	dcl oldH: Device`History := member.history;
+  	dcl h1: Device`History := {entity.location |-> 1}; 
+  	dcl h2: Device`History := {entity1.location |-> 2}; 
+  	
+  	AddEntitiesGW(gw, entity); 
+  	AddEntitiesGW(gw, entity1);
+    
+    AddMemberGW(gw, member); 
+  	
+  	gw.UseService(member.id, entity.entityID, 1);
+  	gw.UseService(member.id, entity1.entityID, 2);  	
+  	
+  	assertEqual(gw.CheckHistory(member.id), oldH ++ h1 ++ h2 );  	
+  	
+  	);
+  
+  public testAll: () ==> ()
+  testAll() == ( 
+    testSeveralAditions();
+    IO`println("");
+    testUseService();
+    IO`println("");
+    testGetMemberHistory();
+    )
+       
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end TestGreenWay
